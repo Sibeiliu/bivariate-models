@@ -11,6 +11,10 @@ navbar:
     href: license.html
   - text: MR
     href: MR-Sibei.html
+  right:
+  - text: Source
+    href: https://github.com/cumc/bivariate-models
+
 output:
   workflowr::wflow_html:
     toc: yes
