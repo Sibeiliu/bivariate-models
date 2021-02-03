@@ -1,2 +1,5 @@
 # bivariate-models
-Prototypes of bivariate analysis methods with applications in association studies
+
+A [workflowr][] project.
+
+[workflowr]: https://github.com/jdblischak/workflowr
