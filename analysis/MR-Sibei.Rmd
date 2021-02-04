@@ -6,8 +6,24 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = T, message= FALSE,warning = FALSE)
+set.seed(2020)
+library(readr)
+#library(dplyr)
+library(tidyverse)
+#library(cause)
+library(data.table)
+#library(related)
+#library(R.utils)
+#library(workflowr)
 ```
 
-To see if it works
+
+```{r}
+region_list=c("16_11031741_11307024","16_11031741_11414898","16_11034728_11450487","16_27202702_27371397","16_27394941_27429642","16_53797565_53848561")
+
+trait=c("INT-BMI_regions","")
+region_path=str_c()
+#asthma=fread("./asthma_region/ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_11031741_11307024.sumstats.gz")
+```
 

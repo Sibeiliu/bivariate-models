@@ -12,7 +12,7 @@ navbar:
   - text: MR
     href: MR-Sibei.html
   right:
-  - text: Source
+  - text: Git
     href: https://github.com/cumc/bivariate-models
 
 output:

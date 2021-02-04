@@ -511,28 +511,26 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstreed38225c5eae39e8c95560da646fef6b593837fe8targetblankd38225ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/Sibeiliu/bivariate-models/tree/d38225c5eae39e8c95560da646fef6b593837fe8" target="_blank">d38225c</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstreed9e1b1c5f4134ade1e035bad75edff26ca964eb4targetblankd9e1b1ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/Sibeiliu/bivariate-models/tree/d9e1b1c5f4134ade1e035bad75edff26ca964eb4" target="_blank">d9e1b1c</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstreed38225c5eae39e8c95560da646fef6b593837fe8targetblankd38225ca" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstreed9e1b1c5f4134ade1e035bad75edff26ca964eb4targetblankd9e1b1ca" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/Sibeiliu/bivariate-models/tree/d38225c5eae39e8c95560da646fef6b593837fe8" target="_blank">d38225c</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/Sibeiliu/bivariate-models/tree/d9e1b1c5f4134ade1e035bad75edff26ca964eb4" target="_blank">d9e1b1c</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
-    Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
 Unstaged changes:
     Modified:   analysis/MR-Sibei.Rmd
-    Modified:   analysis/_site.yml
 
 </code></pre>
 <p>
@@ -576,6 +574,40 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/Sibeiliu/bivariate-models/blob/d9e1b1c5f4134ade1e035bad75edff26ca964eb4/analysis/MR-Sibei.Rmd" target="_blank">d9e1b1c</a>
+</td>
+<td>
+Sibei Liu
+</td>
+<td>
+2021-02-03
+</td>
+<td>
+web updtae
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/Sibeiliu/bivariate-models/d9e1b1c5f4134ade1e035bad75edff26ca964eb4/docs/MR-Sibei.html" target="_blank">d9e1b1c</a>
+</td>
+<td>
+Sibei Liu
+</td>
+<td>
+2021-02-03
+</td>
+<td>
+web updtae
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/Sibeiliu/bivariate-models/blob/d38225c5eae39e8c95560da646fef6b593837fe8/analysis/MR-Sibei.Rmd" target="_blank">d38225c</a>
 </td>
 <td>
@@ -612,7 +644,11 @@ add some files
 </div>
 </div>
 </div>
-<p>To see if it works</p>
+<pre class="r"><code>region_list=c(&quot;16_11031741_11307024&quot;,&quot;16_11031741_11414898&quot;,&quot;16_11034728_11450487&quot;,&quot;16_27202702_27371397&quot;,&quot;16_27394941_27429642&quot;,&quot;16_53797565_53848561&quot;)
+
+trait=c(&quot;INT-BMI_regions&quot;,&quot;&quot;)
+region_path=str_c()
+#asthma=fread(&quot;./asthma_region/ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_11031741_11307024.sumstats.gz&quot;)</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -637,15 +673,26 @@ locale:
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
+other attached packages:
+ [1] data.table_1.13.2 forcats_0.5.0     stringr_1.4.0     dplyr_1.0.2      
+ [5] purrr_0.3.4       tidyr_1.1.2       tibble_3.0.4      ggplot2_3.3.2    
+ [9] tidyverse_1.3.0   readr_1.4.0      
+
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.5      rstudioapi_0.13 whisker_0.4     knitr_1.30     
- [5] magrittr_2.0.1  workflowr_1.6.2 R6_2.5.0        rlang_0.4.8    
- [9] stringr_1.4.0   tools_4.0.3     xfun_0.19       git2r_0.28.0   
-[13] htmltools_0.5.0 ellipsis_0.3.1  yaml_2.2.1      digest_0.6.27  
-[17] rprojroot_2.0.2 tibble_3.0.4    lifecycle_0.2.0 crayon_1.3.4   
-[21] later_1.1.0.1   vctrs_0.3.5     promises_1.1.1  fs_1.5.0       
-[25] glue_1.4.2      evaluate_0.14   rmarkdown_2.5   stringi_1.5.3  
-[29] compiler_4.0.3  pillar_1.4.6    httpuv_1.5.4    pkgconfig_2.0.3</code></pre>
+ [1] tidyselect_1.1.0  xfun_0.19         haven_2.3.1       colorspace_2.0-0 
+ [5] vctrs_0.3.5       generics_0.1.0    htmltools_0.5.0   yaml_2.2.1       
+ [9] rlang_0.4.8       later_1.1.0.1     pillar_1.4.6      withr_2.3.0      
+[13] glue_1.4.2        DBI_1.1.0         dbplyr_2.0.0      modelr_0.1.8     
+[17] readxl_1.3.1      lifecycle_0.2.0   munsell_0.5.0     gtable_0.3.0     
+[21] workflowr_1.6.2   cellranger_1.1.0  rvest_0.3.6       evaluate_0.14    
+[25] knitr_1.30        httpuv_1.5.4      fansi_0.4.1       broom_0.7.2      
+[29] Rcpp_1.0.5        promises_1.1.1    backports_1.2.0   scales_1.1.1     
+[33] jsonlite_1.7.2    fs_1.5.0          hms_0.5.3         digest_0.6.27    
+[37] stringi_1.5.3     rprojroot_2.0.2   grid_4.0.3        cli_2.1.0        
+[41] tools_4.0.3       magrittr_2.0.1    crayon_1.3.4      whisker_0.4      
+[45] pkgconfig_2.0.3   ellipsis_0.3.1    xml2_1.3.2        reprex_0.3.0     
+[49] lubridate_1.7.9.2 assertthat_0.2.1  rmarkdown_2.5     httr_1.4.2       
+[53] rstudioapi_0.13   R6_2.5.0          git2r_0.28.0      compiler_4.0.3   </code></pre>
 </div>
 
 
