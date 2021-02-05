@@ -382,7 +382,7 @@ div.tocify {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/cumc/bivariate-models">Source</a>
+  <a href="https://github.com/cumc/bivariate-models">Git</a>
 </li>
       </ul>
     </div><!--/.nav-collapse -->
@@ -420,7 +420,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-02-03
+<strong>Last updated:</strong> 2021-02-05
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -511,22 +511,23 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstreed9e1b1c5f4134ade1e035bad75edff26ca964eb4targetblankd9e1b1ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/Sibeiliu/bivariate-models/tree/d9e1b1c5f4134ade1e035bad75edff26ca964eb4" target="_blank">d9e1b1c</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstreec698cab481a2db8e7c748b25cd70861f727d8586targetblankc698caba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/Sibeiliu/bivariate-models/tree/c698cab481a2db8e7c748b25cd70861f727d8586" target="_blank">c698cab</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstreed9e1b1c5f4134ade1e035bad75edff26ca964eb4targetblankd9e1b1ca" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstreec698cab481a2db8e7c748b25cd70861f727d8586targetblankc698caba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/Sibeiliu/bivariate-models/tree/d9e1b1c5f4134ade1e035bad75edff26ca964eb4" target="_blank">d9e1b1c</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/Sibeiliu/bivariate-models/tree/c698cab481a2db8e7c748b25cd70861f727d8586" target="_blank">c698cab</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
+    Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
 Unstaged changes:
@@ -569,6 +570,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/Sibeiliu/bivariate-models/blob/c698cab481a2db8e7c748b25cd70861f727d8586/analysis/MR-Sibei.Rmd" target="_blank">c698cab</a>
+</td>
+<td>
+Sibei Liu
+</td>
+<td>
+2021-02-03
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/Sibeiliu/bivariate-models/c698cab481a2db8e7c748b25cd70861f727d8586/docs/MR-Sibei.html" target="_blank">c698cab</a>
+</td>
+<td>
+Sibei Liu
+</td>
+<td>
+2021-02-03
+</td>
+<td>
+update
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -644,11 +679,28 @@ add some files
 </div>
 </div>
 </div>
-<pre class="r"><code>region_list=c(&quot;16_11031741_11307024&quot;,&quot;16_11031741_11414898&quot;,&quot;16_11034728_11450487&quot;,&quot;16_27202702_27371397&quot;,&quot;16_27394941_27429642&quot;,&quot;16_53797565_53848561&quot;)
+<pre class="r"><code>asthma_16_11031741_11307024=fread(&quot;../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_11031741_11307024.sumstats.gz&quot;)
 
-trait=c(&quot;INT-BMI_regions&quot;,&quot;&quot;)
-region_path=str_c()
-#asthma=fread(&quot;./asthma_region/ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_11031741_11307024.sumstats.gz&quot;)</code></pre>
+asthma_16_11031741_11414898=fread(&quot;../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_11031741_11414898.sumstats.gz&quot;)
+
+asthma_16_11034728_11450487=fread(&quot;../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_11034728_11450487.sumstats.gz&quot;)
+
+asthma_16_27202702_27371397=fread(&quot;../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_27202702_27371397.sumstats.gz&quot;)
+
+asthma_16_53797565_53848561=fread(&quot;../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_53797565_53848561.sumstats.gz&quot;)
+#################################
+BMI_16_11031741_11307024=fread(&quot;../ukb_imp_v3.UKB_caucasians_BMIwaisthip_AsthmaAndT2D_INT-BMI_withagesex_041720.BoltLMM.snp_stats.all_chr_16_11031741_11307024.sumstats.gz&quot;)
+
+BMI_16_11031741_11414898=fread(&quot;../ukb_imp_v3.UKB_caucasians_BMIwaisthip_AsthmaAndT2D_INT-BMI_withagesex_041720.BoltLMM.snp_stats.all_chr_16_11031741_11414898.sumstats.gz&quot;)
+
+BMI_16_11034728_11450487=fread(&quot;../ukb_imp_v3.UKB_caucasians_BMIwaisthip_AsthmaAndT2D_INT-BMI_withagesex_041720.BoltLMM.snp_stats.all_chr_16_11034728_11450487.sumstats.gz&quot;)
+
+BMI_16_27202702_27371397=fread(&quot;../ukb_imp_v3.UKB_caucasians_BMIwaisthip_AsthmaAndT2D_INT-BMI_withagesex_041720.BoltLMM.snp_stats.all_chr_16_27202702_27371397.sumstats.gz&quot;)
+
+
+BMI_16_27394941_27429642=fread(&quot;../ukb_imp_v3.UKB_caucasians_BMIwaisthip_AsthmaAndT2D_INT-BMI_withagesex_041720.BoltLMM.snp_stats.all_chr_16_27394941_27429642.sumstats.gz&quot;)
+
+BMI_16_53797565_53848561=fread(&quot;../ukb_imp_v3.UKB_caucasians_BMIwaisthip_AsthmaAndT2D_INT-BMI_withagesex_041720.BoltLMM.snp_stats.all_chr_16_53797565_53848561.sumstats.gz&quot;)</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -674,25 +726,37 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] data.table_1.13.2 forcats_0.5.0     stringr_1.4.0     dplyr_1.0.2      
- [5] purrr_0.3.4       tidyr_1.1.2       tibble_3.0.4      ggplot2_3.3.2    
- [9] tidyverse_1.3.0   readr_1.4.0      
+ [1] workflowr_1.6.2   data.table_1.13.2 cause_1.0.0       forcats_0.5.0    
+ [5] stringr_1.4.0     dplyr_1.0.2       purrr_0.3.4       tidyr_1.1.2      
+ [9] tibble_3.0.4      ggplot2_3.3.2     tidyverse_1.3.0   readr_1.4.0      
 
 loaded via a namespace (and not attached):
- [1] tidyselect_1.1.0  xfun_0.19         haven_2.3.1       colorspace_2.0-0 
- [5] vctrs_0.3.5       generics_0.1.0    htmltools_0.5.0   yaml_2.2.1       
- [9] rlang_0.4.8       later_1.1.0.1     pillar_1.4.6      withr_2.3.0      
-[13] glue_1.4.2        DBI_1.1.0         dbplyr_2.0.0      modelr_0.1.8     
-[17] readxl_1.3.1      lifecycle_0.2.0   munsell_0.5.0     gtable_0.3.0     
-[21] workflowr_1.6.2   cellranger_1.1.0  rvest_0.3.6       evaluate_0.14    
-[25] knitr_1.30        httpuv_1.5.4      fansi_0.4.1       broom_0.7.2      
-[29] Rcpp_1.0.5        promises_1.1.1    backports_1.2.0   scales_1.1.1     
-[33] jsonlite_1.7.2    fs_1.5.0          hms_0.5.3         digest_0.6.27    
-[37] stringi_1.5.3     rprojroot_2.0.2   grid_4.0.3        cli_2.1.0        
-[41] tools_4.0.3       magrittr_2.0.1    crayon_1.3.4      whisker_0.4      
-[45] pkgconfig_2.0.3   ellipsis_0.3.1    xml2_1.3.2        reprex_0.3.0     
-[49] lubridate_1.7.9.2 assertthat_0.2.1  rmarkdown_2.5     httr_1.4.2       
-[53] rstudioapi_0.13   R6_2.5.0          git2r_0.28.0      compiler_4.0.3   </code></pre>
+ [1] matrixStats_0.57.0  fs_1.5.0            lubridate_1.7.9.2  
+ [4] doParallel_1.0.16   httr_1.4.2          rprojroot_2.0.2    
+ [7] numDeriv_2016.8-1.1 tools_4.0.3         backports_1.2.0    
+[10] R6_2.5.0            irlba_2.3.3         DBI_1.1.0          
+[13] colorspace_2.0-0    withr_2.3.0         tidyselect_1.1.0   
+[16] gridExtra_2.3       compiler_4.0.3      git2r_0.28.0       
+[19] cli_2.1.0           rvest_0.3.6         xml2_1.3.2         
+[22] scales_1.1.1        SQUAREM_2021.1      mixsqp_0.3-43      
+[25] digest_0.6.27       rmarkdown_2.5       R.utils_2.10.1     
+[28] pscl_1.5.5          pkgconfig_2.0.3     htmltools_0.5.0    
+[31] dbplyr_2.0.0        rlang_0.4.10        readxl_1.3.1       
+[34] rstudioapi_0.13     generics_0.1.0      jsonlite_1.7.2     
+[37] R.oo_1.24.0         magrittr_2.0.1      loo_2.4.1          
+[40] Matrix_1.2-18       Rcpp_1.0.6          munsell_0.5.0      
+[43] fansi_0.4.1         lifecycle_0.2.0     R.methodsS3_1.8.1  
+[46] stringi_1.5.3       whisker_0.4         yaml_2.2.1         
+[49] MASS_7.3-53         grid_4.0.3          parallel_4.0.3     
+[52] promises_1.1.1      crayon_1.3.4        lattice_0.20-41    
+[55] haven_2.3.1         hms_0.5.3           knitr_1.30         
+[58] pillar_1.4.6        codetools_0.2-16    reprex_0.3.0       
+[61] glue_1.4.2          evaluate_0.14       RcppParallel_5.0.2 
+[64] modelr_0.1.8        vctrs_0.3.6         httpuv_1.5.4       
+[67] foreach_1.5.1       cellranger_1.1.0    gtable_0.3.0       
+[70] assertthat_0.2.1    ashr_2.2-32         xfun_0.19          
+[73] broom_0.7.2         later_1.1.0.1       truncnorm_1.0-8    
+[76] intervals_0.15.2    iterators_1.0.13    ellipsis_0.3.1     </code></pre>
 </div>
 
 

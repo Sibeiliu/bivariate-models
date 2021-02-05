@@ -9,21 +9,38 @@ output: html_document
 knitr::opts_chunk$set(echo = T, message= FALSE,warning = FALSE)
 set.seed(2020)
 library(readr)
-#library(dplyr)
 library(tidyverse)
-#library(cause)
+library(cause)
 library(data.table)
 #library(related)
 #library(R.utils)
-#library(workflowr)
+library(workflowr)
 ```
 
 
 ```{r}
-region_list=c("16_11031741_11307024","16_11031741_11414898","16_11034728_11450487","16_27202702_27371397","16_27394941_27429642","16_53797565_53848561")
+asthma_16_11031741_11307024=fread("../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_11031741_11307024.sumstats.gz")
 
-trait=c("INT-BMI_regions","")
-region_path=str_c()
-#asthma=fread("./asthma_region/ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_11031741_11307024.sumstats.gz")
+asthma_16_11031741_11414898=fread("../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_11031741_11414898.sumstats.gz")
+
+asthma_16_11034728_11450487=fread("../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_11034728_11450487.sumstats.gz")
+
+asthma_16_27202702_27371397=fread("../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_27202702_27371397.sumstats.gz")
+
+asthma_16_53797565_53848561=fread("../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_53797565_53848561.sumstats.gz")
+#################################
+BMI_16_11031741_11307024=fread("../ukb_imp_v3.UKB_caucasians_BMIwaisthip_AsthmaAndT2D_INT-BMI_withagesex_041720.BoltLMM.snp_stats.all_chr_16_11031741_11307024.sumstats.gz")
+
+BMI_16_11031741_11414898=fread("../ukb_imp_v3.UKB_caucasians_BMIwaisthip_AsthmaAndT2D_INT-BMI_withagesex_041720.BoltLMM.snp_stats.all_chr_16_11031741_11414898.sumstats.gz")
+
+BMI_16_11034728_11450487=fread("../ukb_imp_v3.UKB_caucasians_BMIwaisthip_AsthmaAndT2D_INT-BMI_withagesex_041720.BoltLMM.snp_stats.all_chr_16_11034728_11450487.sumstats.gz")
+
+BMI_16_27202702_27371397=fread("../ukb_imp_v3.UKB_caucasians_BMIwaisthip_AsthmaAndT2D_INT-BMI_withagesex_041720.BoltLMM.snp_stats.all_chr_16_27202702_27371397.sumstats.gz")
+
+
+BMI_16_27394941_27429642=fread("../ukb_imp_v3.UKB_caucasians_BMIwaisthip_AsthmaAndT2D_INT-BMI_withagesex_041720.BoltLMM.snp_stats.all_chr_16_27394941_27429642.sumstats.gz")
+
+BMI_16_53797565_53848561=fread("../ukb_imp_v3.UKB_caucasians_BMIwaisthip_AsthmaAndT2D_INT-BMI_withagesex_041720.BoltLMM.snp_stats.all_chr_16_53797565_53848561.sumstats.gz")
+
 ```
 
