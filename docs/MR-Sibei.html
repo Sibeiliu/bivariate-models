@@ -511,16 +511,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstreec698cab481a2db8e7c748b25cd70861f727d8586targetblankc698caba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/Sibeiliu/bivariate-models/tree/c698cab481a2db8e7c748b25cd70861f727d8586" target="_blank">c698cab</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstree8cff0788140c6ebb3678077519407d53cabcc763targetblank8cff078a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/Sibeiliu/bivariate-models/tree/8cff0788140c6ebb3678077519407d53cabcc763" target="_blank">8cff078</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstreec698cab481a2db8e7c748b25cd70861f727d8586targetblankc698caba" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstree8cff0788140c6ebb3678077519407d53cabcc763targetblank8cff078a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/Sibeiliu/bivariate-models/tree/c698cab481a2db8e7c748b25cd70861f727d8586" target="_blank">c698cab</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/Sibeiliu/bivariate-models/tree/8cff0788140c6ebb3678077519407d53cabcc763" target="_blank">8cff078</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -570,6 +570,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/Sibeiliu/bivariate-models/blob/8cff0788140c6ebb3678077519407d53cabcc763/analysis/MR-Sibei.Rmd" target="_blank">8cff078</a>
+</td>
+<td>
+Sibei Liu
+</td>
+<td>
+2021-02-05
+</td>
+<td>
+package installed
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/Sibeiliu/bivariate-models/8cff0788140c6ebb3678077519407d53cabcc763/docs/MR-Sibei.html" target="_blank">8cff078</a>
+</td>
+<td>
+Sibei Liu
+</td>
+<td>
+2021-02-05
+</td>
+<td>
+package installed
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -679,28 +713,52 @@ add some files
 </div>
 </div>
 </div>
-<pre class="r"><code>asthma_16_11031741_11307024=fread(&quot;../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_11031741_11307024.sumstats.gz&quot;)
-
-asthma_16_11031741_11414898=fread(&quot;../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_11031741_11414898.sumstats.gz&quot;)
-
-asthma_16_11034728_11450487=fread(&quot;../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_11034728_11450487.sumstats.gz&quot;)
-
-asthma_16_27202702_27371397=fread(&quot;../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_27202702_27371397.sumstats.gz&quot;)
-
-asthma_16_53797565_53848561=fread(&quot;../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_53797565_53848561.sumstats.gz&quot;)
-#################################
-BMI_16_11031741_11307024=fread(&quot;../ukb_imp_v3.UKB_caucasians_BMIwaisthip_AsthmaAndT2D_INT-BMI_withagesex_041720.BoltLMM.snp_stats.all_chr_16_11031741_11307024.sumstats.gz&quot;)
-
-BMI_16_11031741_11414898=fread(&quot;../ukb_imp_v3.UKB_caucasians_BMIwaisthip_AsthmaAndT2D_INT-BMI_withagesex_041720.BoltLMM.snp_stats.all_chr_16_11031741_11414898.sumstats.gz&quot;)
-
-BMI_16_11034728_11450487=fread(&quot;../ukb_imp_v3.UKB_caucasians_BMIwaisthip_AsthmaAndT2D_INT-BMI_withagesex_041720.BoltLMM.snp_stats.all_chr_16_11034728_11450487.sumstats.gz&quot;)
-
-BMI_16_27202702_27371397=fread(&quot;../ukb_imp_v3.UKB_caucasians_BMIwaisthip_AsthmaAndT2D_INT-BMI_withagesex_041720.BoltLMM.snp_stats.all_chr_16_27202702_27371397.sumstats.gz&quot;)
-
-
-BMI_16_27394941_27429642=fread(&quot;../ukb_imp_v3.UKB_caucasians_BMIwaisthip_AsthmaAndT2D_INT-BMI_withagesex_041720.BoltLMM.snp_stats.all_chr_16_27394941_27429642.sumstats.gz&quot;)
-
-BMI_16_53797565_53848561=fread(&quot;../ukb_imp_v3.UKB_caucasians_BMIwaisthip_AsthmaAndT2D_INT-BMI_withagesex_041720.BoltLMM.snp_stats.all_chr_16_53797565_53848561.sumstats.gz&quot;)</code></pre>
+<pre><code>          asthma_V1 asthma_CHR asthma_POS asthma_REF asthma_ALT
+1:  16_11031741_A_G         16   11031741          G          A
+2:  16_11031846_C_T         16   11031846          T          C
+3:  16_11031883_A_C         16   11031883          A          C
+4:  16_11032195_A_G         16   11032195          A          G
+5: 16_11032226_G_GA         16   11032226          G         GA
+6:  16_11032424_A_C         16   11032424          A          C
+         asthma_SNP  asthma_BETA  asthma_SE    asthma_P    asthma_Z
+1:       rs79748582  0.008690250 0.00105534 1.80204e-16  8.23456981
+2:      rs575622542 -0.011790400 0.00721980 1.02456e-01 -1.63306180
+3:      rs560893521  0.004589740 0.01021210 6.53115e-01  0.44943900
+4:       rs74245513 -0.002022650 0.00134911 1.33809e-01 -1.49924918
+5: 16:11032226_GA_G -0.000110200 0.00119135 9.26300e-01 -0.09250100
+6:       rs79429692  0.000252771 0.00767281 9.73719e-01  0.03294431</code></pre>
+<pre><code>             BMI_V1 BMI_CHR   BMI_BP BMI_REF BMI_ALT          BMI_SNP
+1:      rs575622542      16 11031846       T       C      rs575622542
+2:      rs560893521      16 11031883       A       C      rs560893521
+3:       rs74245513      16 11032195       A       G       rs74245513
+4: 16:11032226_GA_G      16 11032226       G      GA 16:11032226_GA_G
+5:       rs79429692      16 11032424       A       C       rs79429692
+6:       rs76284787      16 11032774       A       G       rs76284787
+      BMI_BETA     BMI_SE BMI_P      BMI_Z
+1:  0.01423150 0.01837130 0.570  0.5680515
+2:  0.05144910 0.02585070 0.058  1.8956979
+3:  0.00216789 0.00343834 0.510  0.6588377
+4:  0.00375400 0.00303706 0.220  1.2265281
+5: -0.00591978 0.01938120 0.810 -0.2404260
+6:  0.00933315 0.01020530 0.350  0.9345893</code></pre>
+<pre><code>Formatting X1
+There are  6975  variants.
+Removing  3529  duplicated variants leaving  1314 variants.
+Removing  51  variants with illegal allelse leaving  1314 variants.
+Removed  184  variants with ambiguous strand.
+Flipping strand and effect allele so A1 is always A
+Returning  1130  variants.
+Formatting X2
+There are  8862  variants.
+Removing  4590  duplicated variants leaving  1560 variants.
+Removing  57  variants with illegal allelse leaving  1560 variants.
+Removed  230  variants with ambiguous strand.
+Flipping strand and effect allele so A1 is always A
+Returning  1330  variants.
+After merging and removing variants with inconsistent alleles,  there are  1081  variants that are present in both studies and can be used with CAUSE.</code></pre>
+<pre class="r"><code>set.seed(100)
+#varlist &lt;- with(data, sample(snp, size=1000000, replace=FALSE))
+#params &lt;- est_cause_params(X, varlist)</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -726,9 +784,10 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] workflowr_1.6.2   data.table_1.13.2 cause_1.0.0       forcats_0.5.0    
- [5] stringr_1.4.0     dplyr_1.0.2       purrr_0.3.4       tidyr_1.1.2      
- [9] tibble_3.0.4      ggplot2_3.3.2     tidyverse_1.3.0   readr_1.4.0      
+ [1] workflowr_1.6.2   eply_0.1.2        data.table_1.13.2 cause_1.0.0      
+ [5] forcats_0.5.0     stringr_1.4.0     dplyr_1.0.2       purrr_0.3.4      
+ [9] tidyr_1.1.2       tibble_3.0.4      ggplot2_3.3.2     tidyverse_1.3.0  
+[13] readr_1.4.0      
 
 loaded via a namespace (and not attached):
  [1] matrixStats_0.57.0  fs_1.5.0            lubridate_1.7.9.2  

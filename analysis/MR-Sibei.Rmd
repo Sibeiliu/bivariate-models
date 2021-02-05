@@ -2,23 +2,24 @@
 title: "MR"
 author: "Sibei Liu"
 date: "2021/2/1"
-output: html_document
+output:
+  html_document:
+    code_folding: "hide"
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = T, message= FALSE,warning = FALSE)
-set.seed(2020)
+```{r setup,include=F}
+knitr::opts_chunk$set( message= FALSE,warning = FALSE)
 library(readr)
 library(tidyverse)
 library(cause)
 library(data.table)
 #library(related)
-#library(R.utils)
+library(eply)
 library(workflowr)
 ```
 
 
-```{r}
+```{r, echo = FALSE}
 asthma_16_11031741_11307024=fread("../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_11031741_11307024.sumstats.gz")
 
 asthma_16_11031741_11414898=fread("../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_11031741_11414898.sumstats.gz")
@@ -28,6 +29,17 @@ asthma_16_11034728_11450487=fread("../ukb_imp_v3.Asthma_casesbyICD10codesANDself
 asthma_16_27202702_27371397=fread("../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_27202702_27371397.sumstats.gz")
 
 asthma_16_53797565_53848561=fread("../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_53797565_53848561.sumstats.gz")
+
+asthma_colnames=colnames(asthma_16_53797565_53848561)
+final_asthma_colnemas=str_c("asthma_",asthma_colnames)
+asthma=rbind(asthma_16_11031741_11307024,asthma_16_11031741_11414898,asthma_16_11034728_11450487,asthma_16_27202702_27371397,asthma_16_53797565_53848561)
+
+colnames(asthma)=final_asthma_colnemas
+head(asthma)
+```
+
+
+```{r, echo = FALSE}
 #################################
 BMI_16_11031741_11307024=fread("../ukb_imp_v3.UKB_caucasians_BMIwaisthip_AsthmaAndT2D_INT-BMI_withagesex_041720.BoltLMM.snp_stats.all_chr_16_11031741_11307024.sumstats.gz")
 
@@ -37,10 +49,34 @@ BMI_16_11034728_11450487=fread("../ukb_imp_v3.UKB_caucasians_BMIwaisthip_AsthmaA
 
 BMI_16_27202702_27371397=fread("../ukb_imp_v3.UKB_caucasians_BMIwaisthip_AsthmaAndT2D_INT-BMI_withagesex_041720.BoltLMM.snp_stats.all_chr_16_27202702_27371397.sumstats.gz")
 
-
-BMI_16_27394941_27429642=fread("../ukb_imp_v3.UKB_caucasians_BMIwaisthip_AsthmaAndT2D_INT-BMI_withagesex_041720.BoltLMM.snp_stats.all_chr_16_27394941_27429642.sumstats.gz")
-
 BMI_16_53797565_53848561=fread("../ukb_imp_v3.UKB_caucasians_BMIwaisthip_AsthmaAndT2D_INT-BMI_withagesex_041720.BoltLMM.snp_stats.all_chr_16_53797565_53848561.sumstats.gz")
+##############
+BMI_colnames=colnames(BMI_16_53797565_53848561)
+colnames(BMI_16_11031741_11307024)=BMI_colnames
+colnames(BMI_16_11034728_11450487)=BMI_colnames
+colnames(BMI_16_11031741_11414898)=BMI_colnames
+colnames(BMI_16_27202702_27371397)=BMI_colnames
+final_BMI_colnemas=str_c("BMI_",BMI_colnames)
+BMI=rbind(BMI_16_11031741_11307024,BMI_16_11031741_11414898,BMI_16_11034728_11450487,BMI_16_27202702_27371397,BMI_16_53797565_53848561)
 
+colnames(BMI)=final_BMI_colnemas
+head(BMI)
+```
+
+```{r,echo=FALSE}
+# for eachi region, merge two data traits
+data <- gwas_merge(asthma, BMI, snp_name_cols = c("asthma_SNP", "BMI_SNP"), 
+                       beta_hat_cols = c("asthma_BETA", "BMI_BETA"), 
+                       se_cols = c("asthma_SE", "BMI_SE"), 
+                       A1_cols = c("asthma_REF", "BMI_REF"), 
+                       A2_cols = c("asthma_ALT", "BMI_ALT"))
+
+```
+
+
+```{r}
+set.seed(100)
+#varlist <- with(data, sample(snp, size=1000000, replace=FALSE))
+#params <- est_cause_params(X, varlist)
 ```
 
