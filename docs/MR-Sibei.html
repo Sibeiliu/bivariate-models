@@ -511,16 +511,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstree8cff0788140c6ebb3678077519407d53cabcc763targetblank8cff078a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/Sibeiliu/bivariate-models/tree/8cff0788140c6ebb3678077519407d53cabcc763" target="_blank">8cff078</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstree4a4469210f169c355adcdfdb029fd1baaf485fa0targetblank4a44692a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/Sibeiliu/bivariate-models/tree/4a4469210f169c355adcdfdb029fd1baaf485fa0" target="_blank">4a44692</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstree8cff0788140c6ebb3678077519407d53cabcc763targetblank8cff078a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstree4a4469210f169c355adcdfdb029fd1baaf485fa0targetblank4a44692a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/Sibeiliu/bivariate-models/tree/8cff0788140c6ebb3678077519407d53cabcc763" target="_blank">8cff078</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/Sibeiliu/bivariate-models/tree/4a4469210f169c355adcdfdb029fd1baaf485fa0" target="_blank">4a44692</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -570,6 +570,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/Sibeiliu/bivariate-models/blob/4a4469210f169c355adcdfdb029fd1baaf485fa0/analysis/MR-Sibei.Rmd" target="_blank">4a44692</a>
+</td>
+<td>
+Sibei Liu
+</td>
+<td>
+2021-02-05
+</td>
+<td>
+transform the data
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/Sibeiliu/bivariate-models/4a4469210f169c355adcdfdb029fd1baaf485fa0/docs/MR-Sibei.html" target="_blank">4a44692</a>
+</td>
+<td>
+Sibei Liu
+</td>
+<td>
+2021-02-05
+</td>
+<td>
+transform the data
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -741,6 +775,12 @@ add some files
 4:  0.00375400 0.00303706 0.220  1.2265281
 5: -0.00591978 0.01938120 0.810 -0.2404260
 6:  0.00933315 0.01020530 0.350  0.9345893</code></pre>
+<pre class="r"><code># for eachi region, merge two data traits
+data &lt;- gwas_merge(asthma, BMI, snp_name_cols = c(&quot;asthma_SNP&quot;, &quot;BMI_SNP&quot;), 
+                       beta_hat_cols = c(&quot;asthma_BETA&quot;, &quot;BMI_BETA&quot;), 
+                       se_cols = c(&quot;asthma_SE&quot;, &quot;BMI_SE&quot;), 
+                       A1_cols = c(&quot;asthma_REF&quot;, &quot;BMI_REF&quot;), 
+                       A2_cols = c(&quot;asthma_ALT&quot;, &quot;BMI_ALT&quot;))</code></pre>
 <pre><code>Formatting X1
 There are  6975  variants.
 Removing  3529  duplicated variants leaving  1314 variants.
@@ -756,6 +796,15 @@ Removed  230  variants with ambiguous strand.
 Flipping strand and effect allele so A1 is always A
 Returning  1330  variants.
 After merging and removing variants with inconsistent alleles,  there are  1081  variants that are present in both studies and can be used with CAUSE.</code></pre>
+<pre class="r"><code># formated data
+head(data)</code></pre>
+<pre><code>          snp   beta_hat_1        seb1   beta_hat_2       seb2 A1 A2
+1 rs150258910 -4.42786e-03 0.003055580 -0.000894756 0.00778383  A  C
+2  rs12922090 -6.20602e-04 0.001100210 -0.000689250 0.00280498  A  G
+3  rs12922409 -6.05009e-04 0.001100350 -0.000729873 0.00280532  A  G
+4 rs539184488 -5.97138e-05 0.010583600  0.007837880 0.02683000  A  G
+5  rs35051965  8.68803e-04 0.000944880 -0.000741283 0.00240700  A  G
+6  rs56136462  1.79333e-03 0.000962815  0.002083740 0.00245190  A  G</code></pre>
 <pre class="r"><code>set.seed(100)
 #varlist &lt;- with(data, sample(snp, size=1000000, replace=FALSE))
 #params &lt;- est_cause_params(X, varlist)</code></pre>

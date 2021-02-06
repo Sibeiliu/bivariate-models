@@ -63,14 +63,15 @@ colnames(BMI)=final_BMI_colnemas
 head(BMI)
 ```
 
-```{r,echo=FALSE}
+```{r,echo=T}
 # for eachi region, merge two data traits
 data <- gwas_merge(asthma, BMI, snp_name_cols = c("asthma_SNP", "BMI_SNP"), 
                        beta_hat_cols = c("asthma_BETA", "BMI_BETA"), 
                        se_cols = c("asthma_SE", "BMI_SE"), 
                        A1_cols = c("asthma_REF", "BMI_REF"), 
                        A2_cols = c("asthma_ALT", "BMI_ALT"))
-
+# formated data
+head(data)
 ```
 
 
