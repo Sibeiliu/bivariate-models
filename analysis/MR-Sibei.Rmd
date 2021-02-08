@@ -18,7 +18,7 @@ library(eply)
 library(workflowr)
 ```
 
-
+# Prepare data
 ```{r, echo = FALSE}
 asthma_16_11031741_11307024=fread("../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_11031741_11307024.sumstats.gz")
 
@@ -64,7 +64,7 @@ head(BMI)
 ```
 
 ```{r,echo=T}
-# for eachi region, merge two data traits
+# for merge two data traits and finding the common SNPs
 data <- gwas_merge(asthma, BMI, snp_name_cols = c("asthma_SNP", "BMI_SNP"), 
                        beta_hat_cols = c("asthma_BETA", "BMI_BETA"), 
                        se_cols = c("asthma_SE", "BMI_SE"), 
@@ -74,10 +74,11 @@ data <- gwas_merge(asthma, BMI, snp_name_cols = c("asthma_SNP", "BMI_SNP"),
 head(data)
 ```
 
-
+# Analysis-calculate the nuisance parameter
 ```{r}
 set.seed(100)
-#varlist <- with(data, sample(snp, size=1000000, replace=FALSE))
-#params <- est_cause_params(X, varlist)
+varlist <- with(data, sample(snp, size=500, replace=FALSE))
+params <- est_cause_params(data, varlist)
+params
 ```
 
