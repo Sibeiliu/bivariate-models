@@ -511,22 +511,23 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstree3920d1137bc6cd61f66960f1c1da9b995fd97d6ctargetblank3920d11a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/Sibeiliu/bivariate-models/tree/3920d1137bc6cd61f66960f1c1da9b995fd97d6c" target="_blank">3920d11</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstreebdcc2fd9cc6f1a00838b24504fddb2b3edd38fdctargetblankbdcc2fda"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/Sibeiliu/bivariate-models/tree/bdcc2fd9cc6f1a00838b24504fddb2b3edd38fdc" target="_blank">bdcc2fd</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstree3920d1137bc6cd61f66960f1c1da9b995fd97d6ctargetblank3920d11a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstreebdcc2fd9cc6f1a00838b24504fddb2b3edd38fdctargetblankbdcc2fda" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/Sibeiliu/bivariate-models/tree/3920d1137bc6cd61f66960f1c1da9b995fd97d6c" target="_blank">3920d11</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/Sibeiliu/bivariate-models/tree/bdcc2fd9cc6f1a00838b24504fddb2b3edd38fdc" target="_blank">bdcc2fd</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
+    Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
 Unstaged changes:
@@ -569,6 +570,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/Sibeiliu/bivariate-models/blob/bdcc2fd9cc6f1a00838b24504fddb2b3edd38fdc/analysis/MR-Sibei.Rmd" target="_blank">bdcc2fd</a>
+</td>
+<td>
+Sibei Liu
+</td>
+<td>
+2021-02-08
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/Sibeiliu/bivariate-models/bdcc2fd9cc6f1a00838b24504fddb2b3edd38fdc/docs/MR-Sibei.html" target="_blank">bdcc2fd</a>
+</td>
+<td>
+Sibei Liu
+</td>
+<td>
+2021-02-08
+</td>
+<td>
+update
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -874,60 +909,59 @@ head(data)</code></pre>
 4 rs539184488 -5.97138e-05 0.010583600  0.007837880 0.02683000  A  G
 5  rs35051965  8.68803e-04 0.000944880 -0.000741283 0.00240700  A  G
 6  rs56136462  1.79333e-03 0.000962815  0.002083740 0.00245190  A  G</code></pre>
+<pre class="r"><code>dim(data)</code></pre>
+<pre><code>[1] 1081    7</code></pre>
+<p>Warning: Among the two traits, only 1081 common SNP variants, small number will lead to poor estimates of the mixing parameters whih leads to bad model comparisons</p>
 </div>
 <div id="step-2-analysis-calculate-the-nuisance-parameter" class="section level1">
 <h1>Step 2: Analysis-calculate the nuisance parameter</h1>
 <pre class="r"><code>set.seed(100)
-varlist &lt;- with(data, sample(snp, size=500, replace=FALSE))
+varlist &lt;- data$snp
 params &lt;- est_cause_params(data, varlist)</code></pre>
-<pre><code>Estimating CAUSE parameters with  500  variants.
-1 0.2554513 
-2 0.01128713 
-3 0.0009242992 
-4 7.660617e-05 
-5 6.355418e-06 
-6 5.272415e-07 
-7 4.374101e-08 </code></pre>
+<pre><code>Estimating CAUSE parameters with  1081  variants.
+1 0.3226372 
+2 0.008047968 
+3 0.0003166234 
+4 1.258583e-05 
+5 5.004749e-07 
+6 1.985126e-08 </code></pre>
 <pre class="r"><code>params</code></pre>
 <pre><code>$rho
-[1] 0.2677463
+[1] 0.3310149
 
 $pi
- [1] 0.19347387 0.00000000 0.46443749 0.10077920 0.00000000 0.00000000
- [7] 0.06912230 0.13419454 0.00000000 0.00000000 0.00000000 0.00000000
-[13] 0.01527369 0.02271891 0.00000000 0.00000000 0.00000000 0.00000000
+ [1] 0.16204943 0.00000000 0.48408372 0.10515948 0.00000000 0.00000000
+ [7] 0.08757081 0.16113657 0.00000000 0.00000000 0.00000000 0.00000000
+[13] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
 [19] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
-[25] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
 
 $mix_grid
            S1         S2         pi
-1 0.000000000 0.00000000 0.19347387
-2 0.004273606 0.00000000 0.46443749
-3 0.017094425 0.00000000 0.10077920
-4 0.000000000 0.04449642 0.06912230
-5 0.003021896 0.04449642 0.13419454
-6 0.000000000 0.06292744 0.01527369
-7 0.003021896 0.06292744 0.02271891
+1 0.000000000 0.00000000 0.16204943
+2 0.004273606 0.00000000 0.48408372
+3 0.017094425 0.00000000 0.10515948
+4 0.000000000 0.04468453 0.08757081
+5 0.003021896 0.04468453 0.16113657
 
 $loglik
-[1] 3420.744
+[1] 7255.658
 
 $PIS
                          pi         pi         pi         pi         pi
- [1,] 0.18754772 0.19350426 0.19347746 0.19347418 0.19347390 0.19347387
+ [1,] 0.14566468 0.16188921 0.16204346 0.16204919 0.16204942 0.16204943
  [2,] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
- [3,] 0.47820523 0.46512300 0.46449384 0.46444216 0.46443787 0.46443752
- [4,] 0.09632208 0.10039182 0.10074676 0.10077651 0.10077898 0.10077918
+ [3,] 0.50701234 0.48470790 0.48410828 0.48408470 0.48408376 0.48408372
+ [4,] 0.10067776 0.10488999 0.10514870 0.10515905 0.10515946 0.10515948
  [5,] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
  [6,] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
- [7,] 0.00000000 0.06265466 0.06858863 0.06907804 0.06911863 0.06912200
- [8,] 0.16327865 0.13784057 0.13449471 0.13421943 0.13419661 0.13419471
+ [7,] 0.07784049 0.08726707 0.08755877 0.08757033 0.08757079 0.08757081
+ [8,] 0.16880474 0.16124584 0.16114079 0.16113673 0.16113657 0.16113657
  [9,] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
 [10,] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
 [11,] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
 [12,] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
-[13,] 0.07464632 0.02094603 0.01574151 0.01531248 0.01527691 0.01527396
-[14,] 0.00000000 0.01953965 0.02245709 0.02269720 0.02271711 0.02271876
+[13,] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+[14,] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
 [15,] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
 [16,] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
 [17,] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
@@ -938,64 +972,59 @@ $PIS
 [22,] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
 [23,] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
 [24,] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
-[25,] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
-[26,] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
-[27,] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
-[28,] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
-[29,] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
-[30,] 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
-              pi         pi
- [1,] 0.19347387 0.19347387
- [2,] 0.00000000 0.00000000
- [3,] 0.46443749 0.46443749
- [4,] 0.10077920 0.10077920
- [5,] 0.00000000 0.00000000
- [6,] 0.00000000 0.00000000
- [7,] 0.06912228 0.06912230
- [8,] 0.13419456 0.13419454
- [9,] 0.00000000 0.00000000
-[10,] 0.00000000 0.00000000
-[11,] 0.00000000 0.00000000
-[12,] 0.00000000 0.00000000
-[13,] 0.01527371 0.01527369
-[14,] 0.02271890 0.02271891
-[15,] 0.00000000 0.00000000
-[16,] 0.00000000 0.00000000
-[17,] 0.00000000 0.00000000
-[18,] 0.00000000 0.00000000
-[19,] 0.00000000 0.00000000
-[20,] 0.00000000 0.00000000
-[21,] 0.00000000 0.00000000
-[22,] 0.00000000 0.00000000
-[23,] 0.00000000 0.00000000
-[24,] 0.00000000 0.00000000
-[25,] 0.00000000 0.00000000
-[26,] 0.00000000 0.00000000
-[27,] 0.00000000 0.00000000
-[28,] 0.00000000 0.00000000
-[29,] 0.00000000 0.00000000
-[30,] 0.00000000 0.00000000
+              pi
+ [1,] 0.16204943
+ [2,] 0.00000000
+ [3,] 0.48408372
+ [4,] 0.10515948
+ [5,] 0.00000000
+ [6,] 0.00000000
+ [7,] 0.08757081
+ [8,] 0.16113657
+ [9,] 0.00000000
+[10,] 0.00000000
+[11,] 0.00000000
+[12,] 0.00000000
+[13,] 0.00000000
+[14,] 0.00000000
+[15,] 0.00000000
+[16,] 0.00000000
+[17,] 0.00000000
+[18,] 0.00000000
+[19,] 0.00000000
+[20,] 0.00000000
+[21,] 0.00000000
+[22,] 0.00000000
+[23,] 0.00000000
+[24,] 0.00000000
 
 $RHO
-[1] 0.0000000 0.2554513 0.2667384 0.2676627 0.2677393 0.2677457 0.2677462
-[8] 0.2677463
+[1] 0.0000000 0.3226372 0.3306852 0.3310018 0.3310144 0.3310149 0.3310149
 
 $LLS
- [1] 3417.566 3420.628 3420.737 3420.744 3420.744 3420.744 3420.744 3420.744
- [9] 3420.744 3420.744 3420.744 3420.744 3420.744 3420.744 3420.744
+ [1] 7244.325 7255.280 7255.650 7255.658 7255.658 7255.658 7255.658 7255.658
+ [9] 7255.658 7255.658 7255.658 7255.658 7255.658
 
 $converged
 [1] TRUE
 
 $prior
-[1] 75.00644
+[1] 51.91503
 
 $var
             [,1]
-[1,] 0.009396171
+[1,] 0.003927044
 
 attr(,&quot;class&quot;)
 [1] &quot;cause_params&quot;</code></pre>
+<pre class="r"><code>head(params$mix_grid)</code></pre>
+<pre><code>           S1         S2         pi
+1 0.000000000 0.00000000 0.16204943
+2 0.004273606 0.00000000 0.48408372
+3 0.017094425 0.00000000 0.10515948
+4 0.000000000 0.04468453 0.08757081
+5 0.003021896 0.04468453 0.16113657</code></pre>
+<p>We have estimated that 16% of variants have trait 1 variance and trait 2 equal to 0 meaning that they have no association with either trait.</p>
 </div>
 <div id="step-3ld-pruning" class="section level1">
 <h1>Step 3:LD Pruning</h1>
@@ -1046,9 +1075,9 @@ Of these,  544  have LD information.</code></pre>
 [8] &quot;qbeta&quot;  </code></pre>
 <pre class="r"><code>res$elpd</code></pre>
 <pre><code>   model1  model2 delta_elpd se_delta_elpd         z
-1    null sharing 0.05957922    0.02616599 2.2769718
-2    null  causal 0.15236604    0.25389149 0.6001227
-3 sharing  causal 0.09278682    0.23240477 0.3992466</code></pre>
+1    null sharing 0.06539795    0.02429909 2.6913738
+2    null  causal 0.18539268    0.25538647 0.7259299
+3 sharing  causal 0.11999473    0.23675675 0.5068271</code></pre>
 <p>model1, model2: The models being compared delta_elpd: Estimated difference in elpd. If delta_elpd is negative, model 2 is a better fit se_delta_elpd: Estimated standard error of delta_elpd z: delta_elpd/se_delta_elpd. A z-score that can be compared to a normal distribution to test if the difference in model fit is significant.</p>
 <pre class="r"><code>plot(res$sharing)</code></pre>
 <p><img src="figure/MR-Sibei.Rmd/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>

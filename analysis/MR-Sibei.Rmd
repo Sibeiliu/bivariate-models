@@ -75,15 +75,23 @@ data <- gwas_merge(asthma, BMI, snp_name_cols = c("asthma_SNP", "BMI_SNP"),
 
 # formated data
 head(data)
+
+dim(data)
 ```
+
+Warning: Among the two traits, only 1081 common SNP variants, small number will lead to poor estimates of the mixing parameters whih leads to bad model comparisons 
 
 # Step 2: Analysis-calculate the nuisance parameter
 ```{r}
 set.seed(100)
-varlist <- with(data, sample(snp, size=500, replace=FALSE))
+varlist <- data$snp
 params <- est_cause_params(data, varlist)
 params
+
+head(params$mix_grid)
 ```
+
+We have estimated that 16% of variants have trait 1 variance and trait 2 equal to 0 meaning that they have no association with either trait.
 
 # Step 3:LD Pruning 
 
