@@ -511,16 +511,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstreebdcc2fd9cc6f1a00838b24504fddb2b3edd38fdctargetblankbdcc2fda"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/Sibeiliu/bivariate-models/tree/bdcc2fd9cc6f1a00838b24504fddb2b3edd38fdc" target="_blank">bdcc2fd</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstree1b2d7bbc22d52397ee17984dde4da3cf001b31fftargetblank1b2d7bba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/Sibeiliu/bivariate-models/tree/1b2d7bbc22d52397ee17984dde4da3cf001b31ff" target="_blank">1b2d7bb</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstreebdcc2fd9cc6f1a00838b24504fddb2b3edd38fdctargetblankbdcc2fda" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstree1b2d7bbc22d52397ee17984dde4da3cf001b31fftargetblank1b2d7bba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/Sibeiliu/bivariate-models/tree/bdcc2fd9cc6f1a00838b24504fddb2b3edd38fdc" target="_blank">bdcc2fd</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/Sibeiliu/bivariate-models/tree/1b2d7bbc22d52397ee17984dde4da3cf001b31ff" target="_blank">1b2d7bb</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -570,6 +570,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/Sibeiliu/bivariate-models/blob/1b2d7bbc22d52397ee17984dde4da3cf001b31ff/analysis/MR-Sibei.Rmd" target="_blank">1b2d7bb</a>
+</td>
+<td>
+Sibei Liu
+</td>
+<td>
+2021-02-08
+</td>
+<td>
+update
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/Sibeiliu/bivariate-models/1b2d7bbc22d52397ee17984dde4da3cf001b31ff/docs/MR-Sibei.html" target="_blank">1b2d7bb</a>
+</td>
+<td>
+Sibei Liu
+</td>
+<td>
+2021-02-08
+</td>
+<td>
+update
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1078,11 +1112,20 @@ Of these,  544  have LD information.</code></pre>
 1    null sharing 0.06539795    0.02429909 2.6913738
 2    null  causal 0.18539268    0.25538647 0.7259299
 3 sharing  causal 0.11999473    0.23675675 0.5068271</code></pre>
-<p>model1, model2: The models being compared delta_elpd: Estimated difference in elpd. If delta_elpd is negative, model 2 is a better fit se_delta_elpd: Estimated standard error of delta_elpd z: delta_elpd/se_delta_elpd. A z-score that can be compared to a normal distribution to test if the difference in model fit is significant.</p>
+<p>model1, model2: The models being compared</p>
+<p>delta_elpd: Estimated difference in elpd. If delta_elpd is negative, model 2 is a better fit</p>
+<p>se_delta_elpd: Estimated standard error of delta_elpd</p>
+<p>z: delta_elpd/se_delta_elpd. A z-score that can be compared to a normal distribution to test if the difference in model fit is significant.</p>
+<pre class="r"><code>summary(res, ci_size=0.95)</code></pre>
+<pre><code>p-value testing that causal model is a better fit:  0.69 
+Posterior medians and  95 % credible intervals:
+     model     gamma                eta                  q              
+[1,] &quot;Sharing&quot; NA                   &quot;0.03 (-0.76, 0.78)&quot; &quot;0.06 (0, 0.3)&quot;
+[2,] &quot;Causal&quot;  &quot;0.15 (-0.26, 0.53)&quot; &quot;0.01 (-0.77, 0.77)&quot; &quot;0.06 (0, 0.3)&quot;</code></pre>
 <pre class="r"><code>plot(res$sharing)</code></pre>
-<p><img src="figure/MR-Sibei.Rmd/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/MR-Sibei.Rmd/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>plot(res, type=&quot;data&quot;)</code></pre>
-<p><img src="figure/MR-Sibei.Rmd/unnamed-chunk-10-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/MR-Sibei.Rmd/unnamed-chunk-11-2.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">

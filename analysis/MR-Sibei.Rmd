@@ -21,6 +21,10 @@ library(installr)
 
 
 ```{r, echo = FALSE}
+#try=fread("../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_53797565_53848561.genotype.gz")
+
+#try2=fread("../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_53797565_53848561.population_ld.gz")
+#######################################################
 asthma_16_11031741_11307024=fread("../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_11031741_11307024.sumstats.gz")
 
 asthma_16_11031741_11414898=fread("../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_11031741_11414898.sumstats.gz")
@@ -135,9 +139,19 @@ res$elpd
 
 ```
 model1, model2: The models being compared
+
 delta_elpd: Estimated difference in elpd. If delta_elpd is negative, model 2 is a better fit
+
 se_delta_elpd: Estimated standard error of delta_elpd
+
 z: delta_elpd/se_delta_elpd. A z-score that can be compared to a normal distribution to test if the difference in model fit is significant.
+
+```{r}
+
+summary(res, ci_size=0.95)
+```
+
+
 
 ```{r}
 plot(res$sharing)
