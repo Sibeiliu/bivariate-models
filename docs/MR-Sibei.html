@@ -12,7 +12,7 @@
 <meta name="author" content="Sibei Liu" />
 
 
-<title>MR</title>
+<title>Mendelian randomization for pleiotropic effects using GWAS summary</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -393,7 +393,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">MR</h1>
+<h1 class="title toc-ignore">Mendelian randomization for pleiotropic effects using GWAS summary</h1>
 <h4 class="author">Sibei Liu</h4>
 <h4 class="date">2021/2/1</h4>
 
@@ -420,7 +420,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-02-07
+<strong>Last updated:</strong> 2021-02-08
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -511,23 +511,22 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstree3ce71b3fc85b5bf17b9bb4040eeabe98ede4836ftargetblank3ce71b3a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/Sibeiliu/bivariate-models/tree/3ce71b3fc85b5bf17b9bb4040eeabe98ede4836f" target="_blank">3ce71b3</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstree3920d1137bc6cd61f66960f1c1da9b995fd97d6ctargetblank3920d11a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/Sibeiliu/bivariate-models/tree/3920d1137bc6cd61f66960f1c1da9b995fd97d6c" target="_blank">3920d11</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstree3ce71b3fc85b5bf17b9bb4040eeabe98ede4836ftargetblank3ce71b3a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomSibeiliubivariatemodelstree3920d1137bc6cd61f66960f1c1da9b995fd97d6ctargetblank3920d11a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/Sibeiliu/bivariate-models/tree/3ce71b3fc85b5bf17b9bb4040eeabe98ede4836f" target="_blank">3ce71b3</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/Sibeiliu/bivariate-models/tree/3920d1137bc6cd61f66960f1c1da9b995fd97d6c" target="_blank">3920d11</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
-    Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
 Unstaged changes:
@@ -570,6 +569,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/Sibeiliu/bivariate-models/blob/3920d1137bc6cd61f66960f1c1da9b995fd97d6c/analysis/MR-Sibei.Rmd" target="_blank">3920d11</a>
+</td>
+<td>
+Sibei Liu
+</td>
+<td>
+2021-02-07
+</td>
+<td>
+add code
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/Sibeiliu/bivariate-models/3920d1137bc6cd61f66960f1c1da9b995fd97d6c/docs/MR-Sibei.html" target="_blank">3920d11</a>
+</td>
+<td>
+Sibei Liu
+</td>
+<td>
+2021-02-07
+</td>
+<td>
+add code
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -781,8 +814,6 @@ add some files
 </div>
 </div>
 </div>
-<div id="prepare-data" class="section level1">
-<h1>Prepare data</h1>
 <pre><code>          asthma_V1 asthma_CHR asthma_POS asthma_REF asthma_ALT
 1:  16_11031741_A_G         16   11031741          G          A
 2:  16_11031846_C_T         16   11031846          T          C
@@ -811,6 +842,8 @@ add some files
 4:  0.00375400 0.00303706 0.220  1.2265281
 5: -0.00591978 0.01938120 0.810 -0.2404260
 6:  0.00933315 0.01020530 0.350  0.9345893</code></pre>
+<div id="step1-prepare-the-data" class="section level1">
+<h1>Step1: Prepare the data</h1>
 <pre class="r"><code># for merge two data traits and finding the common SNPs
 data &lt;- gwas_merge(asthma, BMI, snp_name_cols = c(&quot;asthma_SNP&quot;, &quot;BMI_SNP&quot;), 
                        beta_hat_cols = c(&quot;asthma_BETA&quot;, &quot;BMI_BETA&quot;), 
@@ -842,8 +875,8 @@ head(data)</code></pre>
 5  rs35051965  8.68803e-04 0.000944880 -0.000741283 0.00240700  A  G
 6  rs56136462  1.79333e-03 0.000962815  0.002083740 0.00245190  A  G</code></pre>
 </div>
-<div id="analysis-calculate-the-nuisance-parameter" class="section level1">
-<h1>Analysis-calculate the nuisance parameter</h1>
+<div id="step-2-analysis-calculate-the-nuisance-parameter" class="section level1">
+<h1>Step 2: Analysis-calculate the nuisance parameter</h1>
 <pre class="r"><code>set.seed(100)
 varlist &lt;- with(data, sample(snp, size=500, replace=FALSE))
 params &lt;- est_cause_params(data, varlist)</code></pre>
@@ -963,6 +996,64 @@ $var
 
 attr(,&quot;class&quot;)
 [1] &quot;cause_params&quot;</code></pre>
+</div>
+<div id="step-3ld-pruning" class="section level1">
+<h1>Step 3:LD Pruning</h1>
+<p>This step requires LD estimates. Download estimates of chromsome 16 made in the 1000 Genomes CEU population from “<a href="https://zenodo.org/record/1464357#.W8a-fxROmV4" class="uri">https://zenodo.org/record/1464357#.W8a-fxROmV4</a>”</p>
+<pre class="r"><code>#download.file(&quot;https://zenodo.org/record/1464357/files/chr16_AF0.05_0.1.RDS?download=1&quot;, destfile = &quot;../chr16_AF0.05_0.1.RDS&quot;)
+#download.file(&quot;https://zenodo.org/record/1464357/files/chr16_AF0.05_snpdata.RDS?download=1&quot;, destfile=&quot;../chr16_AF0.05_snpdata.RDS&quot;)</code></pre>
+<pre class="r"><code>ld &lt;- readRDS(&quot;../chr16_AF0.05_0.1.RDS&quot;)
+snp_info &lt;- readRDS(&quot;../chr16_AF0.05_snpdata.RDS&quot;)
+
+head(ld)</code></pre>
+<pre><code>      rowsnp      colsnp        r2
+1 rs76368850 rs542544747 0.2655372
+2 rs76368850   rs4021615 0.1397717
+3 rs76368850 rs201731689 0.1772501
+4 rs76368850 rs572534626 0.1187799
+5 rs76368850 rs565960587 0.1528682
+6 rs76368850 rs558303720 0.1528682</code></pre>
+<pre class="r"><code>head(snp_info)</code></pre>
+<pre><code># A tibble: 6 x 9
+     AF SNP         allele   chr   pos   snp_id region_id   map ld_snp_id
+  &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;int&gt; &lt;int&gt;    &lt;int&gt;     &lt;int&gt; &lt;dbl&gt;     &lt;int&gt;
+1 0.364 rs76368850  T,C       16 60291 67777509        16     0  67777509
+2 0.439 rs542544747 A,C       16 60842 67777531        16     0  67777531
+3 0.207 rs4021615   G,A       16 61349 67777546        16     0  67777546
+4 0.581 rs201731689 C,G       16 61730 67777556        16     0  67777556
+5 0.606 rs572534626 C,G       16 61977 67777564        16     0  67777564
+6 0.838 rs565960587 C,A       16 62511 67777581        16     0  67777581</code></pre>
+<p>The snp_info data frame contains information about all of the chromosome #16 variants with allele frequency greater than 0.05. The only piece of information we need from this data frame is the list of variants SNP column in snp_info data set which provides the total list of variants used in the LD calculations.</p>
+<pre class="r"><code>variants &lt;- data %&gt;% mutate(pval1 = 2*pnorm(abs(beta_hat_1/seb1), lower.tail=FALSE))
+pruned &lt;- ld_prune(variants = variants, 
+                            ld = ld, total_ld_variants = snp_info$SNP, 
+                            pval_cols = c(&quot;pval1&quot;), 
+                            pval_thresh = c(1e-3))</code></pre>
+<pre><code>You have suppplied information for  1081  variants.
+Of these,  544  have LD information.</code></pre>
+<pre class="r"><code>length(pruned)</code></pre>
+<pre><code>[1] 6</code></pre>
+</div>
+<div id="step4-fit-cause" class="section level1">
+<h1>Step4: Fit CAUSE</h1>
+<pre class="r"><code>res &lt;- cause(X=data, variants = pruned, param_ests = params)</code></pre>
+<pre><code>Estimating CAUSE posteriors using  6  variants.</code></pre>
+</div>
+<div id="step-5-results" class="section level1">
+<h1>Step 5: Results</h1>
+<pre class="r"><code>names(res)</code></pre>
+<pre><code>[1] &quot;sharing&quot; &quot;causal&quot;  &quot;elpd&quot;    &quot;loos&quot;    &quot;data&quot;    &quot;sigma_g&quot; &quot;qalpha&quot; 
+[8] &quot;qbeta&quot;  </code></pre>
+<pre class="r"><code>res$elpd</code></pre>
+<pre><code>   model1  model2 delta_elpd se_delta_elpd         z
+1    null sharing 0.05957922    0.02616599 2.2769718
+2    null  causal 0.15236604    0.25389149 0.6001227
+3 sharing  causal 0.09278682    0.23240477 0.3992466</code></pre>
+<p>model1, model2: The models being compared delta_elpd: Estimated difference in elpd. If delta_elpd is negative, model 2 is a better fit se_delta_elpd: Estimated standard error of delta_elpd z: delta_elpd/se_delta_elpd. A z-score that can be compared to a normal distribution to test if the difference in model fit is significant.</p>
+<pre class="r"><code>plot(res$sharing)</code></pre>
+<p><img src="figure/MR-Sibei.Rmd/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>plot(res, type=&quot;data&quot;)</code></pre>
+<p><img src="figure/MR-Sibei.Rmd/unnamed-chunk-10-2.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -988,38 +1079,39 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] workflowr_1.6.2   eply_0.1.2        data.table_1.13.2 cause_1.0.0      
- [5] forcats_0.5.0     stringr_1.4.0     dplyr_1.0.2       purrr_0.3.4      
- [9] tidyr_1.1.2       tibble_3.0.4      ggplot2_3.3.2     tidyverse_1.3.0  
-[13] readr_1.4.0      
+ [1] installr_0.22.0   workflowr_1.6.2   eply_0.1.2        ieugwasr_0.1.5   
+ [5] data.table_1.13.2 cause_1.0.0       forcats_0.5.0     stringr_1.4.0    
+ [9] dplyr_1.0.2       purrr_0.3.4       tidyr_1.1.2       tibble_3.0.4     
+[13] ggplot2_3.3.2     tidyverse_1.3.0   readr_1.4.0      
 
 loaded via a namespace (and not attached):
  [1] matrixStats_0.57.0  fs_1.5.0            lubridate_1.7.9.2  
  [4] doParallel_1.0.16   httr_1.4.2          rprojroot_2.0.2    
  [7] numDeriv_2016.8-1.1 tools_4.0.3         backports_1.2.0    
-[10] R6_2.5.0            irlba_2.3.3         DBI_1.1.0          
-[13] colorspace_2.0-0    withr_2.3.0         tidyselect_1.1.0   
-[16] gridExtra_2.3       compiler_4.0.3      git2r_0.28.0       
-[19] cli_2.1.0           rvest_0.3.6         xml2_1.3.2         
-[22] scales_1.1.1        SQUAREM_2021.1      mixsqp_0.3-43      
-[25] digest_0.6.27       rmarkdown_2.5       R.utils_2.10.1     
-[28] pscl_1.5.5          pkgconfig_2.0.3     htmltools_0.5.0    
-[31] dbplyr_2.0.0        rlang_0.4.10        readxl_1.3.1       
-[34] rstudioapi_0.13     generics_0.1.0      jsonlite_1.7.2     
-[37] R.oo_1.24.0         magrittr_2.0.1      loo_2.4.1          
-[40] Matrix_1.2-18       Rcpp_1.0.6          munsell_0.5.0      
-[43] fansi_0.4.1         lifecycle_0.2.0     R.methodsS3_1.8.1  
-[46] stringi_1.5.3       whisker_0.4         yaml_2.2.1         
-[49] MASS_7.3-53         grid_4.0.3          parallel_4.0.3     
-[52] promises_1.1.1      crayon_1.3.4        lattice_0.20-41    
-[55] haven_2.3.1         hms_0.5.3           knitr_1.30         
-[58] pillar_1.4.6        codetools_0.2-16    reprex_0.3.0       
-[61] glue_1.4.2          evaluate_0.14       RcppParallel_5.0.2 
-[64] modelr_0.1.8        vctrs_0.3.6         httpuv_1.5.4       
-[67] foreach_1.5.1       cellranger_1.1.0    gtable_0.3.0       
-[70] assertthat_0.2.1    ashr_2.2-32         xfun_0.19          
-[73] broom_0.7.2         later_1.1.0.1       truncnorm_1.0-8    
-[76] intervals_0.15.2    iterators_1.0.13    ellipsis_0.3.1     </code></pre>
+[10] utf8_1.1.4          R6_2.5.0            irlba_2.3.3        
+[13] DBI_1.1.0           colorspace_2.0-0    withr_2.3.0        
+[16] tidyselect_1.1.0    gridExtra_2.3       compiler_4.0.3     
+[19] git2r_0.28.0        cli_2.1.0           rvest_0.3.6        
+[22] xml2_1.3.2          labeling_0.4.2      scales_1.1.1       
+[25] SQUAREM_2021.1      mixsqp_0.3-43       digest_0.6.27      
+[28] R.utils_2.10.1      rmarkdown_2.5       pscl_1.5.5         
+[31] pkgconfig_2.0.3     htmltools_0.5.0     dbplyr_2.0.0       
+[34] rlang_0.4.10        readxl_1.3.1        rstudioapi_0.13    
+[37] farver_2.0.3        generics_0.1.0      jsonlite_1.7.2     
+[40] R.oo_1.24.0         magrittr_2.0.1      loo_2.4.1          
+[43] Matrix_1.2-18       Rcpp_1.0.6          munsell_0.5.0      
+[46] fansi_0.4.1         R.methodsS3_1.8.1   lifecycle_0.2.0    
+[49] stringi_1.5.3       whisker_0.4         yaml_2.2.1         
+[52] MASS_7.3-53         grid_4.0.3          parallel_4.0.3     
+[55] promises_1.1.1      crayon_1.3.4        lattice_0.20-41    
+[58] haven_2.3.1         hms_0.5.3           knitr_1.30         
+[61] pillar_1.4.6        codetools_0.2-16    reprex_0.3.0       
+[64] glue_1.4.2          evaluate_0.14       RcppParallel_5.0.2 
+[67] modelr_0.1.8        vctrs_0.3.6         httpuv_1.5.4       
+[70] foreach_1.5.1       cellranger_1.1.0    gtable_0.3.0       
+[73] assertthat_0.2.1    ashr_2.2-32         xfun_0.19          
+[76] broom_0.7.2         later_1.1.0.1       truncnorm_1.0-8    
+[79] intervals_0.15.2    iterators_1.0.13    ellipsis_0.3.1     </code></pre>
 </div>
 </div>
 

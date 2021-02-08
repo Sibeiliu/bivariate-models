@@ -1,5 +1,5 @@
 ---
-title: "MR"
+title: "Mendelian randomization for pleiotropic effects using GWAS summary"
 author: "Sibei Liu"
 date: "2021/2/1"
 output:
@@ -13,12 +13,13 @@ library(readr)
 library(tidyverse)
 library(cause)
 library(data.table)
-#library(related)
+library(ieugwasr)
 library(eply)
 library(workflowr)
+library(installr)
 ```
 
-# Prepare data
+
 ```{r, echo = FALSE}
 asthma_16_11031741_11307024=fread("../ukb_imp_v3.Asthma_casesbyICD10codesANDselfreport_controlsbyselfreportandicd10_noautoimmuneincontrols.fastGWA.snp_stats.all_chr_16_11031741_11307024.sumstats.gz")
 
@@ -63,6 +64,7 @@ colnames(BMI)=final_BMI_colnemas
 head(BMI)
 ```
 
+# Step1: Prepare the data
 ```{r,echo=T}
 # for merge two data traits and finding the common SNPs
 data <- gwas_merge(asthma, BMI, snp_name_cols = c("asthma_SNP", "BMI_SNP"), 
@@ -70,15 +72,67 @@ data <- gwas_merge(asthma, BMI, snp_name_cols = c("asthma_SNP", "BMI_SNP"),
                        se_cols = c("asthma_SE", "BMI_SE"), 
                        A1_cols = c("asthma_REF", "BMI_REF"), 
                        A2_cols = c("asthma_ALT", "BMI_ALT"))
+
 # formated data
 head(data)
 ```
 
-# Analysis-calculate the nuisance parameter
+# Step 2: Analysis-calculate the nuisance parameter
 ```{r}
 set.seed(100)
 varlist <- with(data, sample(snp, size=500, replace=FALSE))
 params <- est_cause_params(data, varlist)
 params
+```
+
+# Step 3:LD Pruning 
+
+This step requires LD estimates. Download estimates of chromsome 16 made in the 1000 Genomes CEU population from "https://zenodo.org/record/1464357#.W8a-fxROmV4"
+
+```{r}
+#download.file("https://zenodo.org/record/1464357/files/chr16_AF0.05_0.1.RDS?download=1", destfile = "../chr16_AF0.05_0.1.RDS")
+#download.file("https://zenodo.org/record/1464357/files/chr16_AF0.05_snpdata.RDS?download=1", destfile="../chr16_AF0.05_snpdata.RDS")
+```
+
+
+```{r}
+ld <- readRDS("../chr16_AF0.05_0.1.RDS")
+snp_info <- readRDS("../chr16_AF0.05_snpdata.RDS")
+
+head(ld)
+head(snp_info)
+```
+
+The snp_info data frame contains information about all of the chromosome #16 variants with allele frequency greater than 0.05. The only piece of information we need from this data frame is the list of variants SNP column in snp_info data set which provides the total list of variants used in the LD calculations.
+ 
+```{r}
+variants <- data %>% mutate(pval1 = 2*pnorm(abs(beta_hat_1/seb1), lower.tail=FALSE))
+pruned <- ld_prune(variants = variants, 
+                            ld = ld, total_ld_variants = snp_info$SNP, 
+                            pval_cols = c("pval1"), 
+                            pval_thresh = c(1e-3))
+
+length(pruned)
+```
+ 
+# Step4: Fit CAUSE
+```{r}
+res <- cause(X=data, variants = pruned, param_ests = params)
+```
+
+# Step 5: Results
+```{r}
+names(res)
+res$elpd
+
+```
+model1, model2: The models being compared
+delta_elpd: Estimated difference in elpd. If delta_elpd is negative, model 2 is a better fit
+se_delta_elpd: Estimated standard error of delta_elpd
+z: delta_elpd/se_delta_elpd. A z-score that can be compared to a normal distribution to test if the difference in model fit is significant.
+
+```{r}
+plot(res$sharing)
+plot(res, type="data")
 ```
 
